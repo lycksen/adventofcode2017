@@ -1,13 +1,11 @@
 package advent.of.code;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Day2 {
-    
+public class Day2Part2 {
     public static void main(String[] args) {
         String spreadSheet = "3751\t3769\t2769\t2039\t2794\t240\t3579\t1228\t4291\t220\t324\t3960\t211\t1346\t237\t1586\n"
                 + "550\t589\t538\t110\t167\t567\t99\t203\t524\t288\t500\t111\t118\t185\t505\t74\n"
@@ -25,16 +23,17 @@ public class Day2 {
                 + "2602\t216\t495\t3733\t183\t4688\t2893\t4042\t3066\t3810\t189\t4392\t3900\t4321\t2814\t159\n"
                 + "166\t136\t80\t185\t135\t78\t177\t123\t82\t150\t121\t145\t115\t63\t68\t24\n"
                 + "214\t221\t265\t766\t959\t1038\t226\t1188\t1122\t117\t458\t1105\t1285\t1017\t274\t281";
-        
+
         Integer checkSum = 0;
         Scanner scanner = new Scanner(spreadSheet);
         while (scanner.hasNextLine()) {
             List<Integer> numbers = Arrays.stream(Arrays.stream(scanner.nextLine().split("\t"))
                                                         .mapToInt(Integer::parseInt).toArray())
-                                                    .boxed().collect(Collectors.toList());
-            Integer max = numbers.stream().max(Integer::compareTo).get();
-            Integer min = numbers.stream().min(Comparator.naturalOrder()).get();
-            checkSum += (max - min);
+                                          .boxed().collect(Collectors.toList());
+            for(Integer number : numbers) {
+                checkSum += numbers.stream().filter(num -> (number != num && number % num  == 0))
+                                   .reduce(0, (sum, num) -> sum += number / num);
+            }
         }
         scanner.close();
         System.out.print(checkSum);
