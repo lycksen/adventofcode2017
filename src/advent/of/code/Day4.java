@@ -1,6 +1,5 @@
 package advent.of.code;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.Scanner;
 
 public class Day4 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String input = "aa bb cc dd ee\n" 
                 + "aa bb cc dd aa\n" 
                 + "aa bb cc dd aaa";
