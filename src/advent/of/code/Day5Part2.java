@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Day5 {
-    
+public class Day5Part2 {
     public static void main (String[] args) throws IOException {
         String input = new String(Files.readAllBytes(Paths.get("src/resource//Day5.txt")));
 
@@ -19,17 +18,17 @@ public class Day5 {
         }
         int index = 0;
         int current = ints.get(index);
-        int jumps = 0;
+        int i = 0;
         while (true) {
             ints.set(index, current+1);
             index = index + current;
             if (index >= ints.size()) {
-                jumps++;
+                i++;
                 break;
             }
             current = ints.get(index);
-            jumps++;
+            i++;
         }
-        System.out.print(jumps);        
+        System.out.print(i);
     }
 }

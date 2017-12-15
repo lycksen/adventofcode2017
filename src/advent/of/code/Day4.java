@@ -1,5 +1,8 @@
 package advent.of.code;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -7,10 +10,8 @@ import java.util.Scanner;
 
 public class Day4 {
 
-    public static void main(String[] args) {
-        String input = "aa bb cc dd ee\n" 
-                + "aa bb cc dd aa\n" 
-                + "aa bb cc dd aaa";
+    public static void main(String[] args) throws IOException {
+        String input = new String(Files.readAllBytes(Paths.get("src/resource//Day4.txt")));
         
         Scanner scanner = new Scanner(input);
         int valid = 0;
