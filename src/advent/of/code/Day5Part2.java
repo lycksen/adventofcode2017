@@ -20,7 +20,12 @@ public class Day5Part2 {
         int current = ints.get(index);
         int i = 0;
         while (true) {
-            ints.set(index, current+1);
+            if (current >= 3) {
+                ints.set(index, current-1);
+            } else {
+                ints.set(index, current + 1);
+            }
+            
             index = index + current;
             if (index >= ints.size()) {
                 i++;
