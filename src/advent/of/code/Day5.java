@@ -20,17 +20,17 @@ public class Day5 {
         }
         int index = 0;
         int current = ints.get(index);
-        int i = 0;
+        int jumps = 0;
         while (true) {
             ints.set(index, current+1);
             index = index + current;
             if (index >= ints.size()) {
-                i++;
+                jumps++;
                 break;
             }
             current = ints.get(index);
-            i++;
+            jumps++;
         }
-        System.out.print(i);        
+        System.out.print(jumps);        
     }
 }
